@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 
 type SearchParamContextType = {
     params: URLSearchParams;
@@ -10,11 +10,11 @@ export const SearchParamContext = createContext<SearchParamContextType | undefin
 export const SearchParamProvider = ({ children }: { children?: React.ReactNode; }) => {
     const [searchParams, setSearchParams] = useState(window.location.search);
 
-    const updateSearchParams = (callback: (prevUrlSearchParams: URLSearchParams) => URLSearchParams) => {
+    const updateSearchParams = useCallback((callback: (prevUrlSearchParams: URLSearchParams) => URLSearchParams) => {
         const nextUrlSearchParam = callback(new URLSearchParams(searchParams));
         setSearchParams(nextUrlSearchParam.toString());
         history.pushState(null, '', window.location.origin + window.location.pathname + '?' + nextUrlSearchParam.toString());
-    };
+    }, [searchParams]);
 
     return <SearchParamContext.Provider
         value={{

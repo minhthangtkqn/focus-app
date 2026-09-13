@@ -1,5 +1,5 @@
 run:
-	yarn start
+	pnpm start
 
 build:
-	yarn build
+	pnpm build

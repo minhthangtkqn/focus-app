@@ -41,6 +41,7 @@ export const FlashcardApp = () => {
         const hasPanelKey = primaryPanelKey || secondaryPanelKey || extensionPanelKey;
 
         if (!hasModuleKey || !hasPanelKey) {
+            // redirect to default route of this app
             updateSearchParams(prev => {
                 if (!hasModuleKey) {
                     prev.set(ModuleParamKey, FlashcardManagementModuleInfo.name);
