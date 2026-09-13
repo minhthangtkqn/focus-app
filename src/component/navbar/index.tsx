@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Drawer, Menu } from "antd";
-import { CheckSquareOutlined, TagsOutlined, DashboardOutlined } from "@ant-design/icons";
+import { CheckSquareOutlined, TagsOutlined, DashboardOutlined, AppstoreOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import logo from '../../asset/logo.svg';
 import { ApplicationInfo } from "@/application";
@@ -69,6 +69,12 @@ const APPLICATION_LIST = [
         title: 'Crawler',
         label: <a href={`${window.location.origin}?${APPLICATION_PARAM_KEY}=${ApplicationInfo.CrawlerAppInfo.name}`}>Crawler</a>,
         icon: <DashboardOutlined />,
+    },
+    {
+        key: ApplicationInfo.SampleAppInfo.name,
+        title: 'Sample',
+        label: <a href={`${window.location.origin}?${APPLICATION_PARAM_KEY}=${ApplicationInfo.SampleAppInfo.name}`}>Sample</a>,
+        icon: <AppstoreOutlined />,
     },
 ];
 export const AppNavBar = () => {

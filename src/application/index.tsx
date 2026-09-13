@@ -1,6 +1,7 @@
 import { FocusApp, FocusAppInfo } from "./focus";
 import { FlashcardApp, FlashcardAppInfo } from "./flashcard";
 import { CrawlerApp, CrawlerAppInfo } from "./crawler";
+import { SampleApp, SampleAppInfo } from "./sample";
 // import { Route, Routes } from "react-router-dom";
 import { useApplicationKey } from "@/util";
 
@@ -14,6 +15,8 @@ export const BaseApplication = () => {
             return <FlashcardApp />;
         case CrawlerAppInfo.name:
             return <CrawlerApp />;
+        case SampleAppInfo.name:
+            return <SampleApp />;
         default:
             return <FocusApp />;
     }
@@ -28,4 +31,5 @@ export const ApplicationInfo = {
     FocusAppInfo,
     FlashcardAppInfo,
     CrawlerAppInfo,
+    SampleAppInfo,
 };
